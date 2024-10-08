@@ -9,9 +9,9 @@ Data augmentations used from: https://github.com/TaoRuijie/TalkNet-ASD
 
 Run: " python runThis.py {videoPath}  " to process a video.  
 
-Copy and paste ColabNotebook.ipynb to a runtime with T4 in google colab, then run runThis.py with --install flag.  
-
 Requires python_speech_features , scenedetect[opencv] (I will add requirements.txt later).
+
+Copy ColabNotebook.ipynb to a runtime with T4 in google colab and run the cells.  
 
 Future changes include:
 
