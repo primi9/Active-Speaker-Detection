@@ -21,3 +21,4 @@ Future changes include:
 
 Issue that I want to fix:
 Cases of " speaking but not audible " are misclassified as speaking. To solve that issue, more cases like these should be included in the dataset, so that we can better model the audio-visual interaction of a face track. 
+Another way is to augment the dataset by taking speaking tracks and changing the audio with that of another track. (TO TRY)
