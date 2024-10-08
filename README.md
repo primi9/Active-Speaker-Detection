@@ -14,4 +14,4 @@ Future changes include:
 
 1) training with model2
 2) using more data
-3) try to utilize the temporal context of a face track (provide a sequence of frames -> extract audio-visual features from each frame -> utilize a self-attention or RNN to predict label for each frame).
+3) try to utilize the temporal context of a face track (provide a sequence of frames -> extract audio-visual features from each frame -> use a self-attention or RNN to predict label for each frame).
