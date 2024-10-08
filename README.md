@@ -7,9 +7,9 @@ Face detection net used : S3FD https://github.com/cs-giung/face-detection-pytorc
 ASD Model utilizes pretrained S3D net:  https://github.com/kylemin/S3D  
 Data augmentations used from: https://github.com/TaoRuijie/TalkNet-ASD  
 
-Run: " runThis.py {videoPath}  " to process a video.  
+Run: " python runThis.py {videoPath}  " to process a video.  
 
-Copy and paste ColabNotebook.ipynb to a runtime with T4 in google colab.  
+Copy and paste ColabNotebook.ipynb to a runtime with T4 in google colab, then run runThis.py with --install flag.  
 
 Requires python_speech_features , scenedetect[opencv] (I will add requirements.txt later).
 
