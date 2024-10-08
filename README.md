@@ -11,7 +11,7 @@ Run: " python runThis.py {videoPath}  " to process a video.
 
 Requires python_speech_features , scenedetect[opencv] (I will add requirements.txt later).
 
-Copy ColabNotebook.ipynb to a runtime with T4 in google colab and run the cells.  
+Copy ColabNotebook.ipynb and run the cells in google colab on a T4 runtime. 
 
 Future changes include:
 
