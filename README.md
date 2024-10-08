@@ -3,8 +3,11 @@
 Side project that I did during university.
 
 Dataset used: https://github.com/clovaai/lookwhostalking
+
 Face detection net used : S3FD https://github.com/cs-giung/face-detection-pytorch
+
 ASD Model utilizes a pretrained S3D net:  https://github.com/kylemin/S3D
+
 
 Run: " runThis.py --videoPath  " to process a video.
 
