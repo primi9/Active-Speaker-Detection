@@ -39,7 +39,7 @@ class S3FD():
                 
                 scaled_image = np.swapaxes(scaled_image, 1, 2)
                 scaled_image = np.swapaxes(scaled_image, 1, 0)
-                scaled_image = scaled_image[[2, 1, 0], :, :]
+                #scaled_image = scaled_image[[2, 1, 0], :, :]
                 scaled_image = scaled_image.astype('float32')
                 scaled_image -= img_mean
                 inputs.append(scaled_image[[2, 1, 0], :, :])
@@ -82,7 +82,7 @@ class S3FD():
 
                 scaled_img = np.swapaxes(scaled_img, 1, 2)
                 scaled_img = np.swapaxes(scaled_img, 1, 0)
-                scaled_img = scaled_img[[2, 1, 0], :, :]
+                #scaled_img = scaled_img[[2, 1, 0], :, :]
                 scaled_img = scaled_img.astype('float32')
                 scaled_img -= img_mean
                 scaled_img = scaled_img[[2, 1, 0], :, :]
