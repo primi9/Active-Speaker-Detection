@@ -95,9 +95,10 @@ if not os.path.exists('model_weights.pt'):
   weights_url = "https://drive.google.com/file/d/1ycW9QUVdWrjxTC-McN83F3yoPN3xSAUm/view?usp=drive_link"#download the weights
   gdown.download(weights_url, 'model_weights.pt', quiet=True, fuzzy = True)
 
-if not os.path.exists("s3fd/sfd_face.pth"):
+s3fd_weights_path = os.path.join("s3fd", "sfd_face.pth")
+if not os.path.exists(s3fd_weights_path):
   s3fd_url = "https://drive.google.com/file/d/1-3n83r_6PZBXMeI1s7RuSAXiUHNHkFGe/view?usp=sharing"
-  gdown.download(s3fd_url, "s3fd/sfd_face.pth", quiet=True, fuzzy = True)
+  gdown.download(s3fd_url, s3fd_weights_path, quiet=True, fuzzy = True)
 
 model = ASD_model(load_state = True)
 model.to(device)
