@@ -234,7 +234,7 @@ parser.add_argument('--storePath', default='.', type=str)
 parser.add_argument('--videoFramesFolder', default="", type=str)
 parser.add_argument('--MIN_TRACK_LENGTH', default=0, type = int)
 parser.add_argument('--OAP', default=0.3, type = float)
-parser.add_argument('--CONF_THRESH', default=0.9, type = float)
+parser.add_argument('--CONF_THRESH', default=0.7, type = float)
 parser.add_argument('--mode', default=2, type=int, help = "Mode == 0 specifies that face data will be extracted every 0.2s (5fps). Mode == 1 specifies that face data will be extracted for every frame (25fps). If not specified, mode will be determined by the availability of gpu.")
 parser.add_argument('--verbose',dest='to_print', action='store_true', help='Set this flag if you want the script to print details.')
 
