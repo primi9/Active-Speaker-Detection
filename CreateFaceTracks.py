@@ -271,6 +271,7 @@ video = cv2.VideoCapture(args.videoPath)
 width = int(video.get(cv2.CAP_PROP_FRAME_WIDTH))
 height = int(video.get(cv2.CAP_PROP_FRAME_HEIGHT))
 fps = int(video.get(cv2.CAP_PROP_FPS))
+num_frames = int(video.get(cv2.CAP_PROP_FRAME_COUNT))
 assert fps == 25
 
 video.release()
@@ -291,15 +292,21 @@ setattr(args,"SCALE_FACTOR", SCALE_FACTOR)
 scene_list = find_scenes(args.videoPath)
 scene_tms = []
 
+last_tms = round(num_frames / 25.0,2)
+
 if len(scene_list) == 0:
-  num_frames = int(video.get(cv2.CAP_PROP_FRAME_COUNT))
+  
   scene_tms.append(0.0)
-  scene_tms.append(round(num_frames / 25.0,2))
+  scene_tms.append(last_tms)
 else:
   for scene in scene_list:
     scene_tms.append(scene[0].get_seconds())
-  scene_tms.append(scene_list[-1][1].get_seconds())
-
+  
+  tmp = scene_list[-1][1].get_seconds()
+  scene_tms.append(tmp)
+  if last_tms > tmp:
+    scene_tms.append(last_tms)
+  
 if args.to_print:
   print("Scene timestamps:")
   print(scene_tms)
