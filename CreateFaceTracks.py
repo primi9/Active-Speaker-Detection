@@ -6,7 +6,6 @@ from s3fd import S3FD
 
 BATCH_SIZE = 32
 TRACK_COUNTER = 0
-MAXIMUM_TRACK_LEN = 120#120 seconds
 json_data = {}
 
 def extract_video_frames(args):
@@ -257,13 +256,17 @@ else:
 
 if args.mode == 1:
     process_scene = process_scene_25
+    MAXIMUM_TRACK_LEN = 90#90 seconds
 elif args.mode == 0:
     process_scene = process_scene_5
+    MAXIMUM_TRACK_LEN = 180#180 seconds
 else:
     if device == torch.device("cpu"):
         process_scene = process_scene_5
+        MAXIMUM_TRACK_LEN = 180
     else:
         process_scene = process_scene_25
+        MAXIMUM_TRACK_LEN = 90
 
 net = S3FD(device = device)
 
@@ -307,6 +310,8 @@ else:
   scene_tms.append(tmp)
   if last_tms > tmp:
     scene_tms.append(last_tms)
+
+print(scene_tms)
 
 #break the scene timestamps, so that every scene has specific maximum length
 index = 0
