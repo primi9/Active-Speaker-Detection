@@ -44,10 +44,11 @@ class S3FD():
                 scaled_image -= img_mean
                 inputs.append(scaled_image[[2, 1, 0], :, :])
             
-            #if n_frames == 1:
-            #    x = torch.from_numpy(np.array(inputs)).unsqueeze(0).to(self.device)
-            #else:
-            x = torch.from_numpy(np.array(inputs)).to(self.device)
+            if n_frames == 1:
+                print("naiii")
+                x = torch.from_numpy(np.array(inputs)).unsqueeze(0).to(self.device)
+            else:
+                x = torch.from_numpy(np.array(inputs)).to(self.device)
 
             y = self.net(x)
 
