@@ -196,7 +196,10 @@ def process_scene_25(args,start_tms,end_tms):
         boxes.extend(net.detect_faces_gpu(frames[c_frame:c_frame + BATCH_SIZE], s = args.SCALE_FACTOR, conf_th = args.CONF_THRESH))
         c_frame += BATCH_SIZE
       else:
-        boxes.extend(net.detect_faces_gpu(frames[c_frame: n_frames]))
+        print("last one")
+        print(c_frame)
+        print(n_frames)
+        boxes.extend(net.detect_faces_gpu(frames[c_frame: n_frames], s = args.SCALE_FACTOR, conf_th = args.CONF_THRESH)))
         break
         
     face_tracks = createTracks(boxes, start_frame, args.OAP, step = 1)
