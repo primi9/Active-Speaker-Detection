@@ -197,9 +197,6 @@ def process_scene_25(args,start_tms,end_tms):
         boxes.extend(net.detect_faces_gpu(frames[c_frame:c_frame + BATCH_SIZE], s = args.SCALE_FACTOR, conf_th = args.CONF_THRESH))
         c_frame += BATCH_SIZE
       else:
-        print("last one")
-        print(c_frame)
-        print(n_frames)
         boxes.extend(net.detect_faces_gpu(frames[c_frame: n_frames], s = args.SCALE_FACTOR, conf_th = args.CONF_THRESH))
         break
         
@@ -320,7 +317,7 @@ while True:
 
   current_tms = scene_tms[index]
   next_tms = scene_tms[index + 1]
-  
+
   if next_tms - current_tms > MAXIMUM_TRACK_LEN:
     scene_tms.insert(index + 1,current_tms + MAXIMUM_TRACK_LEN)
   

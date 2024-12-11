@@ -25,7 +25,6 @@ class S3FD():
         # print('[S3FD] finished loading (%.4f sec)' % (time.time() - tstamp))
     
     def detect_faces_gpu(self, images, s = 0.25, conf_th = 0.8):
-        print(images[0].shape[1], images[0].shape[0])
         w, h = images[0].shape[1], images[0].shape[0]
         n_frames = len(images)
         
@@ -45,7 +44,6 @@ class S3FD():
                 inputs.append(scaled_image[[2, 1, 0], :, :])
             
             if n_frames == 1:
-                print("naiii")
                 x = torch.from_numpy(np.array(inputs)).unsqueeze(0).to(self.device)
             else:
                 x = torch.from_numpy(np.array(inputs)).to(self.device)
