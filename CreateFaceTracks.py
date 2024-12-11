@@ -256,7 +256,7 @@ else:
 
 if args.mode == 1:
     process_scene = process_scene_25
-    MAXIMUM_TRACK_LEN = 90#90 seconds
+    MAXIMUM_TRACK_LEN = 60#90 seconds
 elif args.mode == 0:
     process_scene = process_scene_5
     MAXIMUM_TRACK_LEN = 180#180 seconds
@@ -266,7 +266,7 @@ else:
         MAXIMUM_TRACK_LEN = 180
     else:
         process_scene = process_scene_25
-        MAXIMUM_TRACK_LEN = 90
+        MAXIMUM_TRACK_LEN = 60
 
 net = S3FD(device = device)
 
