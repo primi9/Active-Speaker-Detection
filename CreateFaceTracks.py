@@ -6,6 +6,7 @@ from s3fd import S3FD
 
 BATCH_SIZE = 32
 TRACK_COUNTER = 0
+MAXIMUM_TRACK_LEN = 120#120 seconds
 json_data = {}
 
 def extract_video_frames(args):
@@ -309,7 +310,22 @@ else:
   scene_tms.append(tmp)
   if last_tms > tmp:
     scene_tms.append(last_tms)
+
+#break the scene timestamps, so that every scene has specific maximum length
+index = 0
+while True:
+
+  if index == len(scene_tms) - 1:
+    break
+
+  current_tms = scene_tms[index]
+  next_tms = scene_tms[index + 1]
   
+  if next_tms - current_tms > MAXIMUM_TRACK_LEN:
+    scene_tms.insert(index + 1,current_tms + MAXIMUM_TRACK_LEN)
+  
+  index += 1
+
 if args.to_print:
   print("Scene timestamps:")
   print(scene_tms)
